@@ -1,0 +1,37 @@
+:root {
+  --z-skip-link: 100;
+  --color-disabled-surface: #e2e6e1;
+  --color-disabled-border: #cad3c9;
+  --color-disabled-text: #637066;
+  --color-modal-shadow: #10281e33;
+  --color-modal-backdrop: #15281f99;
+  --color-text: #202f2a;
+  --color-text-muted: #52625b;
+  --color-surface: #ffffff;
+  --color-page: #fafbf8;
+  --color-surface-muted: #f0f3ee;
+  --color-primary: #155e50;
+  --color-primary-hover: #0d493e;
+  --color-on-primary: #ffffff;
+  --color-border: #cad3c9;
+  --color-control-border: #718177;
+  --color-focus: #914915;
+  --color-error: #a12626;
+  --color-accent-surface: #f6e9c9;
+  --font-family-base: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --font-family-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-size-body: 1rem;
+  --line-height-body: 1.625;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --content-max-width: 78rem;
+}

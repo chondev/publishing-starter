@@ -1,0 +1,14 @@
+{
+  "name": "publishing-starter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Eleventy와 Nunjucks로 구성한 정적 퍼블리싱 시작 세트",
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve --port=8097",
+    "build": "eleventy",
+    "check": "node scripts/check-output.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": { "@11ty/eleventy": "3.1.8" }
+}

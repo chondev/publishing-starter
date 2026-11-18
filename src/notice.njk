@@ -1,0 +1,38 @@
+---
+title: 공지사항
+current: notice
+pageCss: notice
+pagination:
+  data: notices
+  size: 2
+  alias: pageNotices
+permalink: "/notice/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+---
+{% extends "layouts/base.njk" %}
+{% block content %}
+<div class="site-container page-content">
+  <header class="page-heading"><p class="eyebrow">EXAMPLE 01 / NOTICE</p><h1>공지사항</h1><p>같은 데이터를 목록과 펼침 본문으로 구성한 예시입니다.</p></header>
+  <div class="notice-summary"><p>전체 <strong>{{ notices | length }}</strong>건</p><span>샘플 데이터 · 최신순</span></div>
+  <div class="notice-list">
+    {% for notice in pageNotices %}
+    <details class="notice-item">
+      <summary class="notice-item__summary">
+        <span class="badge">{{ notice.category }}</span>
+        <span class="notice-item__title">{{ notice.title }}</span>
+        <time class="notice-item__date" datetime="{{ notice.date }}">{{ notice.displayDate }}</time>
+        <span class="notice-item__toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="notice-item__body"><p>이 안내는 화면 구성을 위한 샘플입니다. 목록은 <code>src/_data/notices.json</code>에서 관리하고, 페이지는 데이터를 반복해 출력합니다.</p><p>제목을 다시 선택하면 본문이 접힙니다. 키보드의 Enter 또는 Space로도 조작할 수 있습니다.</p></div>
+    </details>
+    {% endfor %}
+  </div>
+  <aside class="note mt-6"><h2 class="note__title">어디를 수정하면 될까요?</h2><p>목록 데이터는 <code>notices.json</code>, 이 화면의 배치는 <code>pages/notice.css</code>에서 수정합니다. 헤더와 푸터는 다른 화면과 공유합니다.</p></aside>
+</div>
+<nav class="pagination site-container" aria-label="공지사항 페이지">
+  {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">이전</a>{% else %}<span class="pagination__unavailable">이전<span class="visually-hidden"> 페이지 없음</span></span>{% endif %}
+  {% for href in pagination.hrefs %}
+  <a href="{{ href }}" aria-label="{{ loop.index }}페이지"{% if loop.index0 == pagination.pageNumber %} aria-current="page"{% endif %}>{{ loop.index }}</a>
+  {% endfor %}
+  {% if pagination.href.next %}<a href="{{ pagination.href.next }}">다음</a>{% else %}<span class="pagination__unavailable">다음<span class="visually-hidden"> 페이지 없음</span></span>{% endif %}
+</nav>
+{% endblock %}

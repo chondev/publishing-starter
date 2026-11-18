@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ description or site.description }}">
+  <title>{{ title }} · {{ site.name }}</title>
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  {% if pageCss %}<link rel="stylesheet" href="/assets/css/pages/{{ pageCss }}.css">{% endif %}
+  <link rel="stylesheet" href="/assets/css/utilities.css">
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/navigation.js" defer></script>
+  <script src="/assets/js/dialog.js" defer></script>
+  {% if pageJs %}<script src="/assets/js/{{ pageJs }}.js" defer></script>{% endif %}
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문 바로가기</a>
+  {% include "partials/header.njk" %}
+  <main id="main-content" tabindex="-1">
+    {% block content %}{% endblock %}
+  </main>
+  {% include "partials/footer.njk" %}
+</body>
+</html>

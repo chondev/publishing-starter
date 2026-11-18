@@ -1,0 +1,53 @@
+<section class="ui-section" aria-labelledby="type-heading">
+  <div class="section-heading"><h2 id="type-heading">08. 글꼴과 굵기</h2><p class="section-heading__description">Pretendard 서브셋 · 로컬 웹폰트</p></div>
+  <ul class="type-samples">
+    <li class="type-samples__regular">400 Regular — 본문을 편안하게 읽습니다. Aa 012345</li>
+    <li class="type-samples__medium">500 Medium — 짧은 설명을 강조합니다. Aa 012345</li>
+    <li class="type-samples__semibold">600 SemiBold — 작은 제목을 구분합니다. Aa 012345</li>
+    <li class="type-samples__bold">700 Bold — 주요 제목과 버튼을 표시합니다. Aa 012345</li>
+    <li class="type-samples__extrabold">800 ExtraBold — 대표 문구를 강조합니다. Aa 012345</li>
+  </ul>
+  <p class="ui-caption">서브셋에 없는 문자나 폰트 로딩 실패 시 시스템 대체 글꼴로 표시됩니다.</p>
+</section>
+
+<section class="ui-section" aria-labelledby="tabs-heading">
+  <div class="section-heading"><h2 id="tabs-heading">09. 탭</h2><p class="section-heading__description">방향키로 탐색하고 Enter·Space로 선택합니다.</p></div>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" data-tabs-list aria-label="작업 단계" hidden>
+      <button class="tabs__tab" id="sample-tab-plan" type="button" data-tab aria-controls="sample-panel-plan">설계</button>
+      <button class="tabs__tab" id="sample-tab-build" type="button" data-tab aria-controls="sample-panel-build">구현</button>
+      <button class="tabs__tab" id="sample-tab-check" type="button" data-tab aria-controls="sample-panel-check">검증</button>
+    </div>
+    <section class="tabs__panel" id="sample-panel-plan"><h3>설계</h3><p>내용의 순서와 화면 상태를 먼저 정하고, 좁은 화면부터 배치합니다.</p></section>
+    <section class="tabs__panel" id="sample-panel-build"><h3>구현</h3><p>표준 HTML을 우선하고, 공통 UI와 페이지 배치를 분리합니다.</p></section>
+    <section class="tabs__panel" id="sample-panel-check"><h3>검증</h3><p>키보드·확대·오류·보조기술로 실제 동작을 확인합니다.</p></section>
+  </div>
+  <p class="ui-caption">←·→·Home·End는 초점만 이동합니다. 선택 후 Tab으로 본문에 진입합니다. JavaScript가 없으면 모든 본문을 순서대로 읽을 수 있습니다.</p>
+</section>
+
+<section class="ui-section" aria-labelledby="async-heading" data-async-demo>
+  <div class="section-heading"><h2 id="async-heading">10. 비동기 상태</h2><p class="section-heading__description">처리 중·완료·실패를 글자로 안내합니다.</p></div>
+  <div class="ui-button-row">
+    <button class="btn btn--secondary" type="button" data-async-result="success" disabled>샘플 목록 불러오기</button>
+    <button class="btn btn--secondary" type="button" data-async-result="error" disabled>실패 상황 확인</button>
+  </div>
+  <p class="async-status" role="status" data-async-status></p>
+  <div class="async-result" data-async-content aria-busy="false"><p>아직 목록을 불러오지 않았습니다.</p></div>
+  <noscript><p>상태 변화 예시는 JavaScript가 필요합니다.</p></noscript>
+</section>
+
+<section class="ui-section" aria-labelledby="table-heading">
+  <div class="section-heading"><h2 id="table-heading">11. 데이터 표</h2><p class="section-heading__description">열·행 제목 관계를 유지합니다.</p></div>
+  <p class="ui-caption" id="sample-table-help">좁은 화면에서는 표 영역을 좌우로 스크롤하세요. 키보드는 표 영역에 초점을 둔 뒤 ←·→로 이동할 수 있습니다.</p>
+  <div class="table-scroll" role="region" aria-labelledby="sample-table-caption" aria-describedby="sample-table-help" tabindex="0">
+    <table class="data-table">
+      <caption id="sample-table-caption">화면별 기본 확인 항목</caption>
+      <thead><tr><th scope="col">화면</th><th scope="col">키보드</th><th scope="col">입력·상태</th><th scope="col">좁은 화면</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">공지사항</th><td>Enter·Space 펼침</td><td>펼침·접힘 상태</td><td>제목 줄바꿈</td></tr>
+        <tr><th scope="row">신청 화면</th><td>Enter 확인·오류 링크</td><td>오류 안내·수정·완료</td><td>입력창 1열 배치</td></tr>
+        <tr><th scope="row">레이어 팝업</th><td>Tab 순환·Esc 닫기</td><td>제목 초점·호출 버튼 복귀</td><td>낮은 화면 내부 스크롤</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>

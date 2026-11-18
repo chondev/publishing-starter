@@ -1,0 +1,12 @@
+{
+  "name": "PAGE KIT",
+  "description": "작은 규칙으로 만드는 일관된 화면",
+  "navigation": [
+    { "key": "home", "label": "시작하기", "href": "/" },
+    { "key": "notice", "label": "공지사항", "href": "/notice/" },
+    { "key": "application", "label": "신청 화면", "href": "/application/" },
+    { "key": "ui", "label": "UI 미리보기", "href": "/ui/" },
+    { "key": "accessibility", "label": "접근성 사용 예시", "href": "/accessibility/" },
+    { "key": "standalone", "label": "독립형 페이지", "href": "/standalone/" }
+  ]
+}

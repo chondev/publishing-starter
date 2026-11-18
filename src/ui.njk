@@ -1,0 +1,31 @@
+---
+title: UI 미리보기
+current: ui
+pageCss: ui
+pageJs: patterns
+permalink: /ui/index.html
+---
+{% extends "layouts/base.njk" %}
+{% from "components/macros.njk" import button, card, field %}
+{% block content %}
+<div class="site-container page-content">
+  <header class="page-heading"><p class="eyebrow">EXAMPLE 03 / COMPONENTS</p><h1>화면을 만들기 전, 기준부터.</h1><p>공통 UI를 한곳에서 확인하고 필요한 상태를 비교합니다.</p></header>
+  <section class="ui-section" aria-labelledby="colors-heading"><div class="section-heading"><h2 id="colors-heading">01. 색상 토큰</h2><p class="section-heading__description">역할에 이름을 붙입니다.</p></div><ul class="swatch-grid"><li class="swatch"><span class="swatch__color swatch__color--primary"></span><strong>Primary</strong><code>--color-primary</code></li><li class="swatch"><span class="swatch__color swatch__color--text"></span><strong>Text</strong><code>--color-text</code></li><li class="swatch"><span class="swatch__color swatch__color--surface"></span><strong>Surface muted</strong><code>--color-surface-muted</code></li><li class="swatch"><span class="swatch__color swatch__color--accent"></span><strong>Accent surface</strong><code>--color-accent-surface</code></li></ul></section>
+  <section class="ui-section" aria-labelledby="buttons-heading"><div class="section-heading"><h2 id="buttons-heading">02. 버튼</h2><p class="section-heading__description">공통 매크로로 변형을 관리합니다.</p></div><div class="ui-button-row">{{ button("Primary", "/application/") }}{{ button("Secondary", "/notice/", "secondary") }}{{ button("작은 버튼", "/notice/", "secondary", "sm") }}{{ button("비활성 버튼", "", "primary", "md", true) }}</div><p class="ui-caption">활성 예시는 실제 샘플 페이지로 이동하는 링크입니다. Tab으로 초점 표시도 확인하세요.</p></section>
+  <section class="ui-section" aria-labelledby="cards-heading"><div class="section-heading"><h2 id="cards-heading">03. 카드</h2><p class="section-heading__description">내부 표현은 컴포넌트가 담당합니다.</p></div><div class="ui-card-grid">{{ card("A", "같은 카드, 다양한 내용", "하나의 공통 매크로와 CSS를 여러 화면에서 사용합니다.", "/", "메인 예시 보기") }}{{ card("B", "길이가 달라도 자연스럽게 이어지는 제목과 본문", "내용의 높이를 고정하지 않고, 긴 문구가 자연스럽게 줄바꿈되도록 구성합니다.", "/notice/", "공지 예시 보기") }}</div></section>
+  <section class="ui-section" aria-labelledby="fields-heading"><div class="section-heading"><h2 id="fields-heading">04. 입력 필드</h2><p class="section-heading__description">레이블·도움말·오류를 함께 확인합니다.</p></div><div class="ui-field-grid">{{ field("ui-default", "기본 입력", "내용을 입력하세요", "도움말은 입력창과 연결됩니다.") }}{{ field("ui-error", "오류 상태 예시", "", "입력 예시: sample@example.com", "email", false, "이메일 주소 형식을 확인하세요.", "sample@") }}</div><p class="ui-caption"><a href="/application/">신청 화면</a>에서 오류 발생·수정·재확인 흐름을 시험할 수 있습니다.</p></section>
+  <section class="ui-section" aria-labelledby="details-heading"><div class="section-heading"><h2 id="details-heading">05. 펼침 영역</h2><p class="section-heading__description">기본 HTML 동작을 활용합니다.</p></div><details class="disclosure"><summary>이 샘플은 JSP 없이 어떻게 include를 처리하나요?</summary><div class="disclosure__body"><p>Eleventy가 Nunjucks 템플릿을 읽고 공통 파일을 합쳐 HTML을 생성합니다. 결과물에는 템플릿 문법이 남지 않으며, 브라우저에서는 일반 HTML로 표시됩니다.</p></div></details></section>
+  <section class="ui-section" aria-labelledby="dialog-heading">
+    <div class="section-heading"><h2 id="dialog-heading">06. 레이어 팝업</h2><p class="section-heading__description">초점 이동과 복귀까지 함께 확인합니다.</p></div>
+    <button class="btn btn--primary" type="button" data-dialog-open="sample-dialog" aria-haspopup="dialog" aria-controls="sample-dialog">안내 팝업 열기</button>
+    <p class="ui-caption">열기 → Tab·Shift+Tab 탐색 → Esc 또는 닫기 버튼 → 열었던 버튼으로 복귀. 배경 클릭으로는 닫히지 않습니다.</p>
+  </section>
+  <section class="ui-section" aria-labelledby="standalone-heading">
+    <div class="section-heading"><h2 id="standalone-heading">07. 독립형 레이아웃</h2><p class="section-heading__description">페이지 목적에 따라 문서 골격을 선택합니다.</p></div>
+    <p>공통 사이트 헤더·푸터를 사용하지 않고, 토큰과 UI만 재사용하는 특별 페이지입니다.</p>
+    <div class="mt-6">{{ button("독립형 페이지 보기 ↗", "/standalone/", "secondary") }}</div>
+  </section>
+  {% include "components/sample-patterns.njk" %}
+</div>
+{% include "components/sample-dialog.njk" %}
+{% endblock %}

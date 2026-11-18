@@ -1,0 +1,61 @@
+---
+title: 시작하기
+current: home
+pageCss: main
+permalink: /index.html
+---
+{% extends "layouts/base.njk" %}
+{% from "components/macros.njk" import button, card %}
+{% block content %}
+<section class="hero">
+  <div class="site-container hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A SMALL START, A CONSISTENT SITE</p>
+      <h1 class="hero__title">작은 규칙이 만드는<br><span>일관된 화면.</span></h1>
+      <p class="hero__description">헤더를 고치면 모든 화면에.<br>공통은 한곳에서 관리하고, 페이지의 내용에 집중하세요.</p>
+      <div class="hero__actions">
+        {{ button("UI 미리보기 ↗", "/ui/") }}
+        {{ button("신청 화면 살펴보기", "/application/", "secondary") }}
+      </div>
+      <p class="hero__note">HTML 중심 · 공통 include · 저장하면 자동 반영</p>
+    </div>
+    <div class="structure-board">
+      <div class="structure-board__heading"><span>ONE SOURCE, MANY PAGES</span><span aria-hidden="true">● ● ●</span></div>
+      <div class="structure-board__layout">
+        <span class="structure-board__tag">layouts / base.njk</span>
+        <div class="structure-board__block">공통 헤더 <code>header.njk</code></div>
+        <div class="structure-board__content">
+          <span class="structure-board__tag">block content</span>
+          <strong>화면마다 다른 이야기</strong>
+          <div class="structure-board__tiles"><span>메인</span><span>공지</span><span>신청</span></div>
+        </div>
+        <div class="structure-board__block">공통 푸터 <code>footer.njk</code></div>
+      </div>
+      <p class="structure-board__caption"><span aria-hidden="true">↳</span> 여러 화면, 하나의 공통 골격</p>
+    </div>
+  </div>
+</section>
+
+<section class="section site-container" aria-labelledby="examples-heading">
+  <div class="section-heading">
+    <div><p class="eyebrow">01 / EXPLORE THE STARTER</p><h2 id="examples-heading">직접 열어보는 세 가지 예시</h2></div>
+    <p class="section-heading__description">같은 레이아웃, 서로 다른 본문</p>
+  </div>
+  <div class="main-example-grid">
+    {{ card("01", "공지사항", "공통 데이터를 반복해 만드는 목록. 긴 제목과 모바일 배치도 함께 확인합니다.", "/notice/", "목록 화면 보기") }}
+    {{ card("02", "신청 화면", "레이블과 도움말이 연결된 입력 영역. 폼의 공통 표현을 한 번에 관리합니다.", "/application/", "폼 화면 보기") }}
+    {{ card("03", "UI 미리보기", "버튼, 카드, 폼, 펼침 영역을 한곳에서. 화면을 만들기 전에 기준을 확인합니다.", "/ui/", "공통 UI 보기") }}
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="workflow-heading">
+  <div class="site-container workflow">
+    <div><p class="eyebrow">02 / A SIMPLE WORKFLOW</p><h2 id="workflow-heading">붙여넣기 대신,<br>함께 바뀌는 구조로.</h2><p class="workflow__description">원본을 나누어 작업하고,<br>완성된 HTML로 전달합니다.</p></div>
+    <ol class="workflow__steps">
+      <li><span aria-hidden="true">01</span><div><h3>토큰으로 값을 정하기</h3><p>색상·간격·글꼴의 공통 기준을 만듭니다.</p></div></li>
+      <li><span aria-hidden="true">02</span><div><h3>레이아웃과 UI 재사용하기</h3><p>공통 include와 매크로로 변경 지점을 줄입니다.</p></div></li>
+      <li><span aria-hidden="true">03</span><div><h3>저장하고, 화면에서 확인하기</h3><p>로컬 미리보기에서 자동 반영 결과를 확인합니다.</p></div></li>
+    </ol>
+  </div>
+</section>
+{% endblock %}

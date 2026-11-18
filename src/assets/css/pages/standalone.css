@@ -1,0 +1,298 @@
+.standalone-page {
+  background: #f5f0e5;
+}
+
+.campaign-header,
+.campaign,
+.campaign-footer {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+.campaign-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+}
+
+.campaign-header__brand {
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.campaign-header__brand span {
+  color: #a64b30;
+}
+
+.campaign-header__label {
+  display: none;
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+}
+
+.campaign-header__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 2.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.campaign-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-6);
+  padding-block: var(--space-6);
+}
+
+.campaign-hero__title {
+  margin-top: var(--space-5);
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.065em;
+}
+
+.campaign-hero__title span {
+  color: #a64b30;
+}
+
+.campaign-hero__description {
+  margin-top: var(--space-5);
+  color: var(--color-text-muted);
+}
+
+.campaign-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.campaign-hero__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.campaign-hero__caption {
+  margin-top: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.campaign-art {
+  width: 100%;
+  max-width: 32rem;
+  margin-inline: auto;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 25rem;
+  isolation: isolate;
+  /* 회전한 장식 도형이 좁은 화면의 문서 폭을 늘리지 않도록 제한한다. */
+  overflow: hidden;
+  overflow: clip;
+}
+
+.campaign-art__orbit {
+  position: absolute;
+  inset: 8% 0;
+  border: 1px solid #b6bca8;
+  border-radius: 50%;
+  transform: rotate(-30deg);
+}
+
+.campaign-art__sheet {
+  width: 72%;
+  min-height: 22rem;
+  padding: var(--space-4);
+  border: 1px solid #374d3a;
+  border-radius: var(--radius-sm);
+}
+
+.campaign-art__sheet--back {
+  position: absolute;
+  background: #cf6947;
+  transform: rotate(-12deg) translate(-0.75rem, -0.5rem);
+}
+
+.campaign-art__sheet--back > span {
+  display: block;
+  text-align: right;
+  color: #202f2a;
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+}
+
+.campaign-art__sheet--front {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  background: #dce5c5;
+  transform: rotate(6deg);
+  box-shadow: 0 1rem 3rem #202f2a18;
+}
+
+.campaign-art__index {
+  font: 0.75rem var(--font-family-mono);
+}
+
+.campaign-art__sheet strong {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.campaign-art__line {
+  flex: 1;
+  min-height: 3rem;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 0.65rem, #82926c 0.65rem, #82926c calc(0.65rem + 1px));
+}
+
+.campaign-art__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.campaign-art__seal {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-content: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 0.5rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.12em;
+  transform: rotate(-12deg);
+}
+
+.campaign-structure {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+  padding-block: var(--space-7);
+  border-top: 1px solid #b6bca8;
+}
+
+.campaign-structure__heading h2 {
+  margin-top: var(--space-4);
+  font-size: 2rem;
+  letter-spacing: -0.045em;
+}
+
+.campaign-structure__items {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.campaign-feature {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.campaign-feature__index {
+  flex: 0 0 1.5rem;
+  color: var(--color-primary);
+  font: 0.8125rem var(--font-family-mono);
+}
+
+.campaign-feature h3 {
+  font-size: 1rem;
+}
+
+.campaign-feature p {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.campaign-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+  border-top: 1px solid #b6bca8;
+  font-size: 0.75rem;
+}
+
+.campaign-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
+@media (min-width: 40rem) {
+  .campaign-header,
+  .campaign,
+  .campaign-footer {
+    padding-inline: var(--space-5);
+  }
+
+  .campaign-hero {
+    padding-block: var(--space-8);
+  }
+
+  .campaign-hero__title {
+    font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+  }
+
+  .campaign-art {
+    min-height: 27rem;
+  }
+
+  .campaign-art__sheet {
+    padding: var(--space-5);
+  }
+
+  .campaign-art__seal {
+    width: 7rem;
+    height: 7rem;
+    font-size: 0.625rem;
+  }
+
+  .campaign-structure {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+    gap: var(--space-8);
+    padding-block: var(--space-8);
+  }
+}
+
+@media (min-width: 60rem) {
+  .campaign-header__label { display: inline; }
+  .campaign-hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--space-7);
+  }
+  .campaign-art { max-width: none; }
+}

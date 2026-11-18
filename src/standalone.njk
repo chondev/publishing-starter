@@ -1,0 +1,51 @@
+---
+title: 독립형 페이지
+description: 공통 사이트 헤더와 푸터 없이 별도 레이아웃을 사용하는 캠페인형 퍼블리싱 예시
+permalink: /standalone/index.html
+---
+{% extends "layouts/standalone.njk" %}
+{% block content %}
+<header class="campaign-header">
+  <a class="campaign-header__brand" href="/" aria-label="PAGE KIT 홈">p<span aria-hidden="true">.</span></a>
+  <span class="campaign-header__label">A DIFFERENT LAYOUT, THE SAME FOUNDATION</span>
+  <a class="campaign-header__back" href="/ui/">공통 UI로 돌아가기 <span aria-hidden="true">↗</span></a>
+</header>
+
+<main id="main-content" class="campaign" tabindex="-1">
+  <section class="campaign-hero" aria-labelledby="campaign-heading">
+    <div class="campaign-hero__copy">
+      <p class="eyebrow">SPECIAL PAGE / 2026</p>
+      <h1 class="campaign-hero__title" id="campaign-heading">골격을 벗어나,<br>다른 장면으로<span>.</span></h1>
+      <p class="campaign-hero__description">메인, 캠페인, 특별 안내 페이지.<br>화면의 목적이 다르면 레이아웃도 달라질 수 있습니다.</p>
+      <div class="campaign-hero__actions">
+        <button class="btn btn--primary" type="button" data-dialog-open="sample-dialog" aria-haspopup="dialog" aria-controls="sample-dialog">안내 팝업 열기 <span aria-hidden="true">↗</span></button>
+        <a class="campaign-hero__link" href="#page-structure">이 화면의 구조 살펴보기 <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="campaign-hero__caption">공통 사이트 헤더·푸터 없음 / 독립 레이아웃 예시</p>
+    </div>
+    <div class="campaign-art" aria-hidden="true">
+      <span class="campaign-art__orbit"></span>
+      <div class="campaign-art__sheet campaign-art__sheet--back"><span>LAYOUT B</span></div>
+      <div class="campaign-art__sheet campaign-art__sheet--front">
+        <span class="campaign-art__index">PAGE / 05</span>
+        <strong>A NEW<br>CANVAS.</strong>
+        <span class="campaign-art__line"></span>
+        <span class="campaign-art__footer">BUILT ON THE SAME TOKENS <span>↗</span></span>
+      </div>
+      <span class="campaign-art__seal">INDEPENDENT<br>BY DESIGN</span>
+    </div>
+  </section>
+
+  <section class="campaign-structure" id="page-structure" aria-labelledby="structure-heading">
+    <div class="campaign-structure__heading"><p class="eyebrow">SHARE THE FOUNDATION, CHANGE THE FRAME</p><h2 id="structure-heading">같이 쓸 것과,<br>달라질 것을 나누세요.</h2></div>
+    <div class="campaign-structure__items">
+      <article class="campaign-feature"><span class="campaign-feature__index">01</span><div><h3>독립적인 문서 골격</h3><p><code>layouts/standalone.njk</code>를 사용합니다. 기본 레이아웃의 사이트 헤더·메뉴·푸터와 <code>layout.css</code>는 불러오지 않습니다.</p></div></article>
+      <article class="campaign-feature"><span class="campaign-feature__index">02</span><div><h3>같은 디자인 기반</h3><p>색상·글꼴·간격 토큰과 버튼·팝업은 재사용합니다. 독립적인 화면이라고 공통 규칙까지 복사해서 만들지는 않습니다.</p></div></article>
+      <article class="campaign-feature"><span class="campaign-feature__index">03</span><div><h3>본문은 페이지에서 관리</h3><p>이 화면의 내용은 <code>standalone.njk</code>, 전용 배치는 <code>pages/standalone.css</code>에서 바꿉니다.</p></div></article>
+    </div>
+  </section>
+</main>
+
+<footer class="campaign-footer"><p>PAGE KIT · STANDALONE SAMPLE</p><a href="/">기본 레이아웃과 비교하기 <span aria-hidden="true">↗</span></a></footer>
+{% include "components/sample-dialog.njk" %}
+{% endblock %}

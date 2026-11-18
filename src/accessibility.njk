@@ -1,0 +1,101 @@
+---
+title: 접근성 사용 예시
+current: accessibility
+pageCss: accessibility
+permalink: /accessibility/index.html
+---
+{% extends "layouts/base.njk" %}
+{% block content %}
+<div class="site-container page-content">
+  <header class="page-heading">
+    <p class="eyebrow">ACCESSIBILITY / EXAMPLES</p>
+    <h1>놓치기 쉬운 접근성, 화면에서 확인하기</h1>
+    <p>모양만으로 확인하기 어려운 의미·이름·상태를 실제 예제로 살펴봅니다. 이 페이지는 구현 참고용이며 접근성 인증 완료를 의미하지 않습니다.</p>
+  </header>
+
+  <section class="ui-example" aria-labelledby="image-example-heading">
+    <h2 id="image-example-heading">01. 정보 이미지와 장식 이미지</h2>
+    <div class="example-grid">
+      <figure class="example-card">
+        <img src="/assets/images/sample-process.svg" width="600" height="160" alt="신청 절차: 1단계 정보 입력, 2단계 입력 확인, 3단계 완료">
+        <figcaption>이미지를 보지 못해도 절차와 순서를 알 수 있도록 대체텍스트를 제공합니다.</figcaption>
+      </figure>
+      <div class="example-card">
+        <h3>글자와 함께 쓰는 장식</h3>
+        <a class="example-icon-link" href="/application/"><img src="/assets/images/favicon.svg" width="32" height="32" alt="">신청 화면 보기</a>
+        <p>이미지가 링크 글자를 꾸미기만 한다면 빈 alt를 사용합니다. alt 속성 자체를 빼지는 않습니다.</p>
+        <p>복잡한 그래프·조직도는 짧은 alt 외에 같은 정보를 제공하는 본문이나 표도 필요합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ui-example" aria-labelledby="group-example-heading">
+    <h2 id="group-example-heading">02. 선택지에는 그룹의 질문도 연결하기</h2>
+    <fieldset class="choice-group">
+      <legend>샘플 안내를 확인할 방법</legend>
+      <p id="sample-channel-help">조작 확인용 선택지입니다. 선택한 값은 전송하거나 저장하지 않습니다.</p>
+      <div class="choice-group__options">
+        <label><input type="radio" name="sample-channel" value="web" aria-describedby="sample-channel-help" checked> 웹에서 확인</label>
+        <label><input type="radio" name="sample-channel" value="email" aria-describedby="sample-channel-help"> 이메일로 확인</label>
+      </div>
+    </fieldset>
+    <p class="ui-caption">개별 label만으로는 “무엇을 선택하는가”가 부족할 수 있습니다. fieldset·legend로 질문과 선택지를 묶고, Tab과 방향키로 확인하세요.</p>
+  </section>
+
+  <section class="ui-example" aria-labelledby="checkbox-example-heading">
+    <h2 id="checkbox-example-heading">체크박스의 선택과 초점</h2>
+    <fieldset class="choice-group">
+      <legend>확인할 항목 선택 (조작 예시)</legend>
+      <div class="choice-group__options">
+        <label><input type="checkbox" name="sample-check" value="keyboard"> 키보드 동작</label>
+        <label><input type="checkbox" name="sample-check" value="zoom"> 확대 화면</label>
+      </div>
+    </fieldset>
+    <p class="ui-caption">Tab으로 이동하고 Space로 선택합니다. 실제 input과 기본 선택 표시를 유지하고, 입력 요소에 초점 테두리 하나를 표시합니다. 글자를 눌러도 선택할 수 있습니다.</p>
+  </section>
+
+  <section class="ui-example" aria-labelledby="action-example-heading">
+    <h2 id="action-example-heading">03. 이동은 링크, 동작은 버튼</h2>
+    <div class="example-card">
+      <div class="example-actions">
+        <a class="btn btn--secondary" href="/notice/">공지사항으로 이동</a>
+        <button class="btn btn--primary" type="button" data-dialog-open="sample-dialog" aria-haspopup="dialog" aria-controls="sample-dialog">안내 팝업 열기</button>
+      </div>
+      <p>색이나 모양이 같아도 목적에 맞는 요소를 사용합니다. 팝업의 × 버튼에는 “안내 팝업 닫기”라는 이름이 있습니다.</p>
+      <p>입력 중 Enter는 <a href="/application/">신청 예시</a>에서 확인하세요. 확인 버튼을 누를 때와 같은 오류·완료 흐름으로 동작합니다.</p>
+    </div>
+  </section>
+
+  <section class="ui-example" aria-labelledby="status-example-heading">
+    <h2 id="status-example-heading">04. 색상 외에 글자로 상태 전달하기</h2>
+    <div class="example-card">
+      <p><span class="badge badge--accent"><span aria-hidden="true">●</span> 접수 중</span> 샘플 신청 안내</p>
+      <p>색상과 점을 보지 못해도 “접수 중”이라는 상태를 읽을 수 있습니다. 오류도 테두리 색과 함께 구체적인 수정 방법을 안내합니다.</p>
+      <p>서버 응답으로 바뀌는 상태는 <a href="/ui/#async-heading">비동기 상태 예시</a>에서 처리 중·완료·실패를 확인하세요.</p>
+    </div>
+  </section>
+
+  <section class="ui-example" aria-labelledby="language-example-heading">
+    <h2 id="language-example-heading">05. 언어와 보이는 이름 확인하기</h2>
+    <div class="example-card">
+      <p>영문 안내: <span lang="en">Please check your application details before continuing.</span></p>
+      <p>문서의 기본 언어는 한국어입니다. 문장 단위로 다른 언어가 사용되면 해당 부분의 lang을 지정합니다.</p>
+      <p>버튼의 보이는 글자를 유지하면서 이름을 정합니다. “신청 화면 보기” 버튼에 전혀 다른 aria-label을 덮어쓰지 않습니다.</p>
+    </div>
+  </section>
+
+  <section class="ui-example" aria-labelledby="verify-example-heading">
+    <h2 id="verify-example-heading">06. 화면을 만든 뒤 직접 확인할 것</h2>
+    <ul class="example-checks">
+      <li>첫 Tab으로 본문 바로가기가 보이고, Enter로 본문에 진입하는지 확인합니다.</li>
+      <li><a href="/application/">폼 오류</a>: 빈 입력 → 오류 요약 초점 → 오류 링크 → 입력 수정 → Enter 확인 순서로 시험합니다.</li>
+      <li><a href="/ui/#dialog-heading">모달</a>: 제목 초점·Tab 순환·Esc·호출 버튼 복귀와 낮은 화면의 내부 스크롤을 확인합니다.</li>
+      <li><a href="/ui/#tabs-heading">탭</a>: 방향키 초점 이동·Enter 또는 Space 선택·Tab 본문 진입을 확인합니다.</li>
+      <li><a href="/ui/#table-heading">표</a>: 열·행 제목 관계를 화면낭독기로 읽고, 좁은 화면에서 표 영역만 가로로 이동하는지 확인합니다.</li>
+      <li>200% 텍스트 확대, 400% 브라우저 확대, 텍스트 간격 변경, 웹폰트 차단 후에도 내용과 조작이 유지되는지 확인합니다.</li>
+      <li>자동검사 결과와 실제 키보드·화면낭독기·모바일 기기 시험 결과를 나누어 기록합니다.</li>
+    </ul>
+  </section>
+</div>
+{% include "components/sample-dialog.njk" %}
+{% endblock %}

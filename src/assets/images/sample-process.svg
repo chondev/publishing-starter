@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="600" height="160">
+  <rect width="600" height="160" rx="12" fill="#f0f3ee"/>
+  <g fill="#155e50"><circle cx="100" cy="55" r="24"/><circle cx="300" cy="55" r="24"/><circle cx="500" cy="55" r="24"/></g>
+  <path d="M140 55h120m80 0h120" stroke="#718177" stroke-width="3"/>
+  <g font-family="sans-serif" text-anchor="middle" font-size="22" fill="#fff"><text x="100" y="63">1</text><text x="300" y="63">2</text><text x="500" y="63">3</text></g>
+  <g font-family="sans-serif" text-anchor="middle" font-size="22" fill="#202f2a"><text x="100" y="120">정보 입력</text><text x="300" y="120">입력 확인</text><text x="500" y="120">완료</text></g>
+</svg>
