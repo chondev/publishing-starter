@@ -3,6 +3,7 @@ import path from "node:path";
 import assert from "node:assert/strict";
 import { fileURLToPath } from "node:url";
 
+const prefix = (process.env.SITE_PATH_PREFIX || "/").replace(/\/$/, "");
 const output = fileURLToPath(new URL("../dist/", import.meta.url));
 async function findPages(directory) {
   const result = [];
@@ -26,7 +27,7 @@ for (const file of pages) {
   }
   if (standalone) {
     assert(!html.includes('class="site-header"') && !html.includes('class="site-footer"'), `${file}: independent layout`);
-    assert(!html.includes('href="/assets/css/layout.css"'), `${file}: shared layout CSS excluded`);
+    assert(!html.includes(`href="${prefix}/assets/css/layout.css"`), `${file}: shared layout CSS excluded`);
   }
   assert(html.includes('href="#main-content"') && html.includes('id="main-content"'), `${file}: skip link`);
   const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
@@ -36,7 +37,8 @@ for (const file of pages) {
   }
   for (const match of html.matchAll(/(?:href|src)="([/#][^"]*)"/g)) {
     const [pathname, fragment] = match[1].split("#");
-    let resource = pathname ? decodeURI(pathname) : `/${file}`;
+    if (pathname) assert(pathname.startsWith(prefix + "/"), `${file}: URL outside site prefix: ${pathname}`);
+    let resource = pathname ? decodeURI(pathname.slice(prefix.length)) : `/${file}`;
     if (resource.endsWith("/")) resource += "index.html";
     assert((await stat(path.join(output, resource))).isFile(), `${file}: missing ${resource}`);
     if (fragment) {

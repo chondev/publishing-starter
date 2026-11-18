@@ -1,0 +1,11 @@
+{% set example = examples[current] %}
+<aside class="example-guide note" aria-labelledby="source-heading">
+  <h2 id="source-heading" class="note__title">이 화면의 소스 보기</h2>
+  <p>{{ example.check }}</p>
+  <ul>
+    <li><a href="https://github.com/chondev/publishing-starter/blob/main/src/{{ current }}.njk">{{ example.title }} 템플릿</a></li>
+    {% for label, file in example.sources %}
+    <li><a href="https://github.com/chondev/publishing-starter/blob/main/src/{{ file }}">{{ label }}</a></li>
+    {% endfor %}
+  </ul>
+</aside>

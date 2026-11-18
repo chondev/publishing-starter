@@ -5,17 +5,17 @@ pageCss: main
 permalink: /index.html
 ---
 {% extends "layouts/base.njk" %}
-{% from "components/macros.njk" import button, card %}
+{% from "components/macros.njk" import button %}
 {% block content %}
 <section class="hero">
   <div class="site-container hero__inner">
     <div class="hero__copy">
       <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A SMALL START, A CONSISTENT SITE</p>
-      <h1 class="hero__title">작은 규칙이 만드는<br><span>일관된 화면.</span></h1>
-      <p class="hero__description">헤더를 고치면 모든 화면에.<br>공통은 한곳에서 관리하고, 페이지의 내용에 집중하세요.</p>
+      <h1 class="hero__title">직접 써보는<br><span>퍼블리싱 예제</span></h1>
+      <p class="hero__description">만들고 싶은 화면을 고르세요. 예제의 동작을 확인하고 구현에 사용한 템플릿을 열어볼 수 있습니다.</p>
       <div class="hero__actions">
-        {{ button("UI 미리보기 ↗", "/ui/") }}
-        {{ button("신청 화면 살펴보기", "/application/", "secondary") }}
+        {{ button("예제 5개 둘러보기", "#examples-heading") }}
+        {{ button("GitHub 저장소 보기", "https://github.com/chondev/publishing-starter", "secondary") }}
       </div>
       <p class="hero__note">HTML 중심 · 공통 include · 저장하면 자동 반영</p>
     </div>
@@ -38,13 +38,15 @@ permalink: /index.html
 
 <section class="section site-container" aria-labelledby="examples-heading">
   <div class="section-heading">
-    <div><p class="eyebrow">01 / EXPLORE THE STARTER</p><h2 id="examples-heading">직접 열어보는 세 가지 예시</h2></div>
-    <p class="section-heading__description">같은 레이아웃, 서로 다른 본문</p>
+    <h2 id="examples-heading">만들고 싶은 화면 선택하기</h2>
   </div>
   <div class="main-example-grid">
-    {{ card("01", "공지사항", "공통 데이터를 반복해 만드는 목록. 긴 제목과 모바일 배치도 함께 확인합니다.", "/notice/", "목록 화면 보기") }}
-    {{ card("02", "신청 화면", "레이블과 도움말이 연결된 입력 영역. 폼의 공통 표현을 한 번에 관리합니다.", "/application/", "폼 화면 보기") }}
-    {{ card("03", "UI 미리보기", "버튼, 카드, 폼, 펼침 영역을 한곳에서. 화면을 만들기 전에 기준을 확인합니다.", "/ui/", "공통 UI 보기") }}
+    {% for key, example in examples %}
+    <article class="card">
+      <h3 class="card__title"><a class="card__link" href="/{{ key }}/">{{ example.title }}</a></h3>
+      <p class="card__description">{{ example.description }}</p>
+    </article>
+    {% endfor %}
   </div>
 </section>
 

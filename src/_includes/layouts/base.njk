@@ -23,6 +23,9 @@
   {% include "partials/header.njk" %}
   <main id="main-content" tabindex="-1">
     {% block content %}{% endblock %}
+    {% if examples[current] %}
+    <div class="site-container">{% include "partials/example-guide.njk" %}</div>
+    {% endif %}
   </main>
   {% include "partials/footer.njk" %}
 </body>

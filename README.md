@@ -1,5 +1,7 @@
 # PAGE KIT — 정적 퍼블리싱 시작 세트
 
+[라이브 데모 보기](https://chondev.github.io/publishing-starter/)
+
 Eleventy + Nunjucks로 공통 레이아웃과 include를 관리하는 독립 샘플이다. 기존 JSP·SVN 작업 사본과 연결하지 않는다. Node.js는 작업 PC에서 사용하며, 생성된 HTML을 서비스할 운영 서버에는 필요하지 않다.
 
 ## 구성 의도와 작성 기준

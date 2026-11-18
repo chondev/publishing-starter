@@ -115,7 +115,7 @@ Pretendard v1.3.9 공식 WOFF2 서브셋을 로컬 제공한다. 실제 사용�
 
 - 모바일 GNB는 40rem 미만에서 전체 메뉴 버튼으로 펼치는 1열 목록이다. aria-expanded·hidden을 동기화하며 Esc로 닫고 버튼에 초점을 돌린다. 분기점 전환 시 상태를 초기화한다. JS가 없으면 전체 메뉴를 노출한다. 긴 이름·홀수 메뉴·확대를 시험한다.
 - `.visually-hidden`은 자기 자신이나 자손에 초점이 들어오면 숨김을 해제한다. `caption` 요소 자체에 적용하지 말고 `<caption><span class="visually-hidden">표 제목</span></caption>`처럼 내부 텍스트에 적용해 표의 caption 구조를 유지한다. 새 표는 보이는 caption을 우선한다.
-- 기본 배포 위치는 사이트 루트다. 하위 폴더로 전달하려면 Eleventy의 `pathPrefix` 설정만 추가해서는 부족하다. 모든 내부 href·src(메뉴 JSON을 출력하는 위치, 매크로, CSS/JS/이미지 포함)에 Nunjucks `url` 필터를 일관되게 적용해야 한다. 예: `{{ '/assets/css/base.css' | url }}`. permalink는 출력 구조를 유지한다. CSS 내부 상대 URL은 그대로 두고, JS가 만드는 루트 URL도 확인한다. `/preview/` 같은 실제 마운트 경로에서 전체 링크·새로고침·앵커·폰트를 검사한다. 현재 check 스크립트는 루트 배포 검사이며, prefix를 적용하면 링크 해석에도 동일 prefix 제거 규칙을 추가해야 한다. 이 템플릿이 하위 경로 배포를 이미 지원한다고 가정하지 않는다.
+- 로컬 기본 경로는 `/`다. Pages 빌드와 검사에는 `SITE_PATH_PREFIX=/publishing-starter/`를 지정한다. Eleventy HTML Base 플러그인이 출력 HTML의 내부 URL에 접두사를 적용한다. CSS 내부 경로는 상대 URL을 사용하고, JS에서 URL을 새로 조립하는 경우 실제 하위 경로에서 확인한다.
 - 독립형 강조색 `#a64b30` / 배경 `#f5f0e5`는 계산 대비 약 5.0:1이다. 다른 배경이나 투명도에 재사용하면 다시 측정한다.
 
 페이지네이션은 별도 이름을 가진 nav로 묶고 현재 번호에 `aria-current="page"`를 둔다. GNB와 페이지네이션은 서로 다른 탐색 집합이므로 각각 현재 페이지를 가질 수 있다. 이동할 곳이 없는 이전·다음은 가짜 href나 클릭 가능한 비활성 링크로 만들지 않는다. 체크박스·라디오는 실제 input을 유지하고 label 전체를 누를 수 있게 하며, 초점 테두리를 제거하지 않는다.
