@@ -75,6 +75,18 @@ src/
 
 ## 레이아웃 선택과 레이어 팝업
 
+```mermaid
+flowchart TD
+    accTitle: 페이지 레이아웃 선택
+    accDescr: 사이트 헤더와 메뉴, 푸터가 필요한 화면은 base.njk를 사용하고 독립형 화면은 standalone.njk를 사용한다. 두 레이아웃은 토큰, 기본 스타일, 공통 UI를 공유한다.
+    Page{"사이트 헤더·메뉴·푸터가 필요한가?"}
+    Page -->|예| Base["base.njk · 사이트 공통 화면"]
+    Page -->|아니요| Standalone["standalone.njk · 독립형 화면"]
+    Base --> Layout["사이트 헤더·푸터와 layout.css"]
+    Base --> Shared["공유 자원 · 토큰, 기본 스타일, UI 컴포넌트"]
+    Standalone --> Shared
+```
+
 - 기본 화면: `{% extends "layouts/base.njk" %}`. 사이트 헤더·메뉴·푸터와 `layout.css`를 공유한다.
 - 독립형 화면: `{% extends "layouts/standalone.njk" %}`. 문서 골격을 별도로 사용한다. 토큰·기본 스타일·UI는 공유하지만 사이트 헤더·푸터·`layout.css`는 불러오지 않는다.
 - 기본 메인은 기존 레이아웃을 유지한다. 다른 형태의 메인이 필요하면 독립형 예시처럼 별도 메인 레이아웃을 추가할 수 있다.
