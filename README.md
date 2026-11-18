@@ -25,12 +25,14 @@ VS Code의 `터미널 → 작업 실행 → 퍼블리싱: 미리보기`로도 �
 
 | 경로 | 예시 |
 | --- | --- |
-| `/` | 소개·구조 설명·공통 카드 |
-| `/notice/` | JSON 데이터를 반복하는 공지 목록·기본 details 펼침 |
+| `/` | 소개·구조 설명·공통 카드·공통 모바일 메뉴 |
+| `/notice/`, `/notice/page-2/` | JSON 공지 목록·기본 details 펼침·페이지당 2건씩 생성하는 페이지네이션 |
 | `/application/` | 공통 필드 매크로·레이블·도움말·로컬 형식 확인 |
 | `/ui/` | 색상·버튼·카드·입력 오류·펼침·모달·폰트 다섯 굵기·탭·비동기 상태·스크롤 표 |
 | `/accessibility/` | 놓치기 쉬운 대체텍스트·입력 그룹·링크/버튼·색상 외 상태·부분 언어 지정과 사용 예시 |
 | `/standalone/` | 기본 사이트 헤더·푸터 없는 독립형 캠페인 페이지·동일 팝업 재사용 |
+
+기본 레이아웃의 모바일 메뉴는 **전체 메뉴** 버튼으로 펼치고 메뉴나 버튼에서 Esc를 눌러 닫을 수 있다. JavaScript가 꺼져 있으면 메뉴 전체가 표시된다.
 
 화면의 내용·일자는 모두 샘플이다. 신청 예시에는 서버 전송·저장·메일 발송 기능이 없으며, 실제 개인정보 대신 가상 값을 사용한다.
 
@@ -62,6 +64,7 @@ src/
    │  ├─ utilities.css         최소 보조 클래스
    │  └─ pages/                화면별 배치
    ├─ js/main.js               폼 데모 동작
+   ├─ js/navigation.js         모바일 메뉴 열기·닫기·초점 관리
    ├─ js/dialog.js             모달 열기·닫기·초점·스크롤 관리
    ├─ js/patterns.js           UI 페이지 탭·로컬 비동기 예시
    ├─ fonts/pretendard/        WOFF2 서브셋 400·500·600·700·800 및 라이선스
@@ -111,13 +114,16 @@ npm run check
 
 ## 새 Git 프로젝트로 복제하기
 
-이 폴더를 저장소 루트로 등록한 뒤 Use this template 또는 clone으로 복제한다. GitHub 등록·공개 설정은 별도 작업이다.
+[GitHub 저장소](https://github.com/chondev/publishing-starter)에서 클론한 뒤 프로젝트 이름과 샘플을 교체한다. GitHub에 **Use this template** 버튼이 표시되면 그 버튼으로 새 저장소를 만들 수도 있다.
+
+```sh
+git clone https://github.com/chondev/publishing-starter.git
+cd publishing-starter
+```
 
 - package.json의 name/description과 잠금 파일의 루트 패키지 이름을 동기화한다.
 - src/_data/site.json의 사이트명·메뉴·URL, partials의 고정 브랜드 문구를 수정한다.
 - tokens.css의 브랜드·글꼴·간격, 페이지 title/current/permalink와 샘플 데이터를 수정한다.
 - npm ci → npm run build → npm run check 순서로 확인한다. 페이지 삭제 시 dist의 낡은 출력도 정리하고 재생성한다.
 - 원본·설정·잠금 파일·문서는 Git에서 관리한다. node_modules/dist/.qa는 제외한다. 앞의 dist 포함 안내는 정적 산출물 외부 전달에 해당한다.
-- .github/workflows/check.yml은 이 폴더가 저장소 루트일 때 push/PR에서 설치·빌드·검사를 수행한다. 실제 GitHub 실행은 별도 확인한다.
-
-모바일 GNB는 전체 메뉴 버튼으로 펼치며 Esc로 닫는다. JS가 없으면 메뉴 전체를 노출한다. 공지사항은 2건씩 실제 2페이지로 생성한다.
+- `.github/workflows/check.yml`은 push와 PR에서 Node.js 24로 설치·빌드·검사를 수행한다. 실행 결과는 GitHub의 **Actions** 탭에서 확인한다.
